@@ -1,9 +1,13 @@
+from tensorflow.keras.layers import Input, Dense, Add
+from tensorflow.keras.models import Model
+import pandas as pd
 import numpy as np
 
 # Generate sample data for binary classification
 np.random.seed(0)
 X_train = np.random.randn(1000, 100)
 y_train = np.random.randint(2, size=(1000, 1))
+
 # Variables
 input_shape = (100,)
 num_layers = 50
@@ -41,5 +45,8 @@ def build_skip_connected_nn(input_shape, num_layers, num_neurons):
     return model
 
 
-# Build the skip-connected neural network model
-model = build_skip_connected_nn(input_shape, num_layers, num_neurons)
+# EX: Build the skip-connected neural network model
+# model = build_skip_connected_nn(input_shape, num_layers, num_neurons)
+# model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
+# model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2)
+# model.summary()
